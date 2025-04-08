@@ -92,10 +92,15 @@ public class FestivoCliente {
 
                     if (diaSemana == Calendar.SATURDAY || diaSemana == Calendar.SUNDAY) {
                         cal.setTipo(tipoFinSemana);
-                        cal.setDescripcion("Fin de semana");
+                        
+                        String nombreDia = (diaSemana == Calendar.SATURDAY) ? "Sábado" : "Domingo";
+                        cal.setDescripcion(nombreDia);
                     } else {
                         cal.setTipo(tipoLaboral);
-                        cal.setDescripcion("Día laboral");
+                        
+                        String[] dias = {"Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
+                        String nombreDia = dias[diaSemana - 1];
+                        cal.setDescripcion(nombreDia);
                     }
 
                     calendarios.add(cal);
