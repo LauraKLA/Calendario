@@ -34,7 +34,7 @@ public class FestivoCliente {
     public boolean poblarCalendario(int anio) {
         try {
             // Obtiene festivos desde la API externa
-            String url = "http://localhost:3030/festivos/anio/" + anio;
+            String url = "http://localhost:8080/festivos/verificar/anio/" + anio;
             ResponseEntity<List<FestivoExternoDTO>> response = restTemplate.exchange(
                     url,
                     HttpMethod.GET,
