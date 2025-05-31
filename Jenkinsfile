@@ -4,7 +4,7 @@ pipeline{
     environment{
         DOCKER_IMAGE = 'dockerapicalendario'
         CONTAINE_NAME = 'dockerapicalendario'
-        DOCKER_NETWORK = 'dockerfestivos_red'
+        DOCKER_NETWORK = 'dockerbdfestivos_red'
         DOCKER_BUILD_DIR = 'presentacion'
         HOST_PORT = '9085'
         CONTAINER_PORT = '8081'
