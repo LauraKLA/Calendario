@@ -31,12 +31,17 @@ public class CalendarioServicio implements ICalendarioServicio {
     public List<Calendario> listarPorAnio(int anio) {
         Date inicio = java.sql.Date.valueOf(anio + "-01-01");
         Date fin = java.sql.Date.valueOf(anio + "-12-31");
-        return repositorio.findByFechaBetween(inicio, fin);
+        System.out.println("................."+ inicio + " " + fin);
+        List<Calendario> calendarios = repositorio.findByFechaBetween(inicio, fin);
+        System.out.println(calendarios.size());
+        List<Calendario> todos = repositorio.findAll();
+        System.out.println("Total registros " + todos.size());
+        return calendarios;
     }
 
     public List<Calendario> listarFestivosPorAnio(int anio) {
         Date inicio = java.sql.Date.valueOf(anio + "-01-01");
         Date fin = java.sql.Date.valueOf(anio + "-12-31");
-        return repositorio.findByFechaBetweenAndTipo_Tipo(inicio, fin, "Día Festivo");
+        return repositorio.findByFechaBetweenAndTipo_Tipo(inicio, fin, "Día festivo ");
     }
 }

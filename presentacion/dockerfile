@@ -1,0 +1,5 @@
+FROM openjdk:17jdk-alpine
+WORKDIR /app
+COPY target/presentacion-0.0.1-SNAPHOT.jar app.jar
+EXPOSE 8081
+CMD ["java", "-jar", "app.jar"]

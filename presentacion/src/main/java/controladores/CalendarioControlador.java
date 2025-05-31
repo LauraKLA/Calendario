@@ -13,7 +13,7 @@ import calendario.api.core.servicios.ICalendarioServicio;
 import calendario.api.infraestructura.integracion.FestivoCliente;
 
 @RestController
-
+@RequestMapping("/api/calendario")
 public class CalendarioControlador {
 
     @Autowired
@@ -30,7 +30,7 @@ public class CalendarioControlador {
     }
 
     // Genera calendario de un año
-    @RequestMapping(value = "api/calendario/generar/{anio}", method = RequestMethod.GET)
+    @RequestMapping(value = "/generar/{anio}", method = RequestMethod.GET)
 public ResponseEntity<String> generarCalendario(@PathVariable int anio) {
    
     if (!servicio.listarPorAnio(anio).isEmpty()) {
@@ -53,7 +53,7 @@ public ResponseEntity<String> generarCalendario(@PathVariable int anio) {
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping(value = "api/calendario/listar/{anio}", method = RequestMethod.GET)
+    @RequestMapping(value = "/listar/{anio}", method = RequestMethod.GET)
     public ResponseEntity<List<CalendarioDTO>> listarPorAnio(@PathVariable int anio) {
         List<Calendario> calendarios = servicio.listarPorAnio(anio);
         List<CalendarioDTO> dtos = calendarios.stream()
