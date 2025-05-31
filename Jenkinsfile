@@ -31,7 +31,7 @@ pipeline{
                     catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE'){
                         bat """
                         docker container inspect ${CONTAINE_NAME} > nul 2>&1 &&(
-                            docker container stop d${CONTAINE_NAME}
+                            docker container stop ${CONTAINE_NAME}
                             docker container rm ${CONTAINE_NAME}
                             ) || echo "No existe el contenedor '${CONTAINE_NAME}'"
                         """
